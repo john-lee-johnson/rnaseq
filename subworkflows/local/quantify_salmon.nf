@@ -39,6 +39,7 @@ workflow QUANTIFY_SALMON {
     SALMON_SE_GENE (
         SALMON_TXIMPORT.out.counts_gene,
         SALMON_TXIMPORT.out.tpm_gene,
+        SALMON_TXIMPORT.out.lengths_gene,
         SALMON_TX2GENE.out.tsv.collect()
     )
     ch_versions = ch_versions.mix(SALMON_SE_GENE.out.versions)
@@ -46,12 +47,14 @@ workflow QUANTIFY_SALMON {
     SALMON_SE_GENE_LENGTH_SCALED (
         SALMON_TXIMPORT.out.counts_gene_length_scaled,
         SALMON_TXIMPORT.out.tpm_gene,
+        SALMON_TXIMPORT.out.lengths_gene,
         SALMON_TX2GENE.out.tsv.collect()
     )
 
     SALMON_SE_GENE_SCALED (
         SALMON_TXIMPORT.out.counts_gene_scaled,
         SALMON_TXIMPORT.out.tpm_gene,
+        SALMON_TXIMPORT.out.lengths_gene,
         SALMON_TX2GENE.out.tsv.collect()
     )
 
