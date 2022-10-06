@@ -12,6 +12,7 @@ if (length(args) < 2) {
 coldata = args[1]
 counts_fn = args[2]
 tpm_fn = args[3]
+length_fn = args[4]
 
 tx2gene = "salmon_tx2gene.tsv"
 info = file.info(tx2gene)
@@ -27,6 +28,8 @@ counts = read.csv(counts_fn, row.names=1, sep="\t")
 counts = counts[,2:ncol(counts),drop=FALSE] # remove gene_name column
 tpm = read.csv(tpm_fn, row.names=1, sep="\t")
 tpm = tpm[,2:ncol(tpm),drop=FALSE] # remove gene_name column
+lengths = read.csv(lengths_fn, row.names=1, sep="\t")
+lengths = lengths[,2:ncol(lengths),drop=FALSE] # remove gene_name column
 
 if (length(intersect(rownames(counts), rowdata[["tx"]])) > length(intersect(rownames(counts), rowdata[["gene_id"]]))) {
     by_what = "tx"
@@ -52,7 +55,7 @@ if (length(extra) > 0) {
 
 rowdata = rowdata[match(rownames(counts), as.character(rowdata[[by_what]])),]
 rownames(rowdata) = rowdata[[by_what]]
-se = SummarizedExperiment(assays = list(counts = counts, abundance = tpm),
+se = SummarizedExperiment(assays = list(counts = counts, abundance = tpm, length = lengths),
                         colData = DataFrame(coldata),
                         rowData = rowdata)
 
