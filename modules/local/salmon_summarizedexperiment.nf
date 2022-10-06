@@ -10,6 +10,7 @@ process SALMON_SUMMARIZEDEXPERIMENT {
     input:
     path counts
     path tpm
+    path lengths
     path tx2gene
 
     output:
@@ -24,7 +25,8 @@ process SALMON_SUMMARIZEDEXPERIMENT {
     salmon_summarizedexperiment.r \\
         NULL \\
         $counts \\
-        $tpm
+        $tpm \\
+        $lengths
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
