@@ -13,6 +13,7 @@ process SALMON_TXIMPORT {
     output:
     path "*gene_tpm.tsv"                 , emit: tpm_gene
     path "*gene_counts.tsv"              , emit: counts_gene
+    path "*gene_lengths.tsv"             , emit: lengths_gene
     path "*gene_counts_length_scaled.tsv", emit: counts_gene_length_scaled
     path "*gene_counts_scaled.tsv"       , emit: counts_gene_scaled
     path "*transcript_tpm.tsv"           , emit: tpm_transcript
