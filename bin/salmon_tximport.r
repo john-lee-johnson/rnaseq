@@ -82,7 +82,7 @@ if(exists("gse")){
 
 write.table(build_table(se,"abundance"), paste(c(prefix, "transcript_tpm.tsv"), collapse="."), sep="\t", quote=FALSE, row.names = FALSE)
 write.table(build_table(se, "counts"), paste(c(prefix, "transcript_counts.tsv"), collapse="."), sep="\t", quote=FALSE, row.names = FALSE)
-write.table(build_table(se, "lengths"), paste(c(prefix, "transcript_lengths.tsv"), collapse="."), sep="\t", quote=FALSE, row.names = FALSE)
+write.table(build_table(se, "length"), paste(c(prefix, "transcript_lengths.tsv"), collapse="."), sep="\t", quote=FALSE, row.names = FALSE)
 
 # Print sessioninfo to standard out
 citation("tximeta")
