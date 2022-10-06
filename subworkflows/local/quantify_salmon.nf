@@ -38,7 +38,6 @@ workflow QUANTIFY_SALMON {
 
     SALMON_SE_GENE (
         SALMON_TXIMPORT.out.counts_gene,
-        SALMON_TXIMPORT.out.lengths_gene,
         SALMON_TXIMPORT.out.tpm_gene,
         SALMON_TX2GENE.out.tsv.collect()
     )
