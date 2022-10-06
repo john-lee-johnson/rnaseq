@@ -11,6 +11,7 @@ process SALMON_SUMMARIZEDEXPERIMENT {
     path counts
     path tpm
     path tx2gene
+    path lengths
 
     output:
     path "*.rds"       , emit: rds
