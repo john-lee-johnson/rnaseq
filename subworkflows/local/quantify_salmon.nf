@@ -61,6 +61,7 @@ workflow QUANTIFY_SALMON {
     SALMON_SE_TRANSCRIPT (
         SALMON_TXIMPORT.out.counts_transcript,
         SALMON_TXIMPORT.out.tpm_transcript,
+        SALMON_TXIMPORT.out.lengths_transcript,
         SALMON_TX2GENE.out.tsv.collect()
     )
 
@@ -75,6 +76,8 @@ workflow QUANTIFY_SALMON {
     counts_gene_scaled            = SALMON_TXIMPORT.out.counts_gene_scaled        // channel: [ val(meta), counts ]
     tpm_transcript                = SALMON_TXIMPORT.out.tpm_transcript            // channel: [ val(meta), counts ]
     counts_transcript             = SALMON_TXIMPORT.out.counts_transcript         // channel: [ val(meta), counts ]
+    lengths_transcript            = SALMON_TXIMPORT.out.lengths_transcript        // channel: [ val(meta), counts ]
+
 
     merged_gene_rds               = SALMON_SE_GENE.out.rds                        //    path: *.rds
     merged_gene_rds_length_scaled = SALMON_SE_GENE_LENGTH_SCALED.out.rds          //    path: *.rds
