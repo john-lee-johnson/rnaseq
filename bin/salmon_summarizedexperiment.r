@@ -28,7 +28,7 @@ counts = read.csv(counts_fn, row.names=1, sep="\t")
 counts = counts[,2:ncol(counts),drop=FALSE] # remove gene_name column
 tpm = read.csv(tpm_fn, row.names=1, sep="\t")
 tpm = tpm[,2:ncol(tpm),drop=FALSE] # remove gene_name column
-lengths = read.csv(lengths_fn, row.names=1, sep="\t")
+lengths = read.csv(length_fn, row.names=1, sep="\t")
 lengths = lengths[,2:ncol(lengths),drop=FALSE] # remove gene_name column
 
 if (length(intersect(rownames(counts), rowdata[["tx"]])) > length(intersect(rownames(counts), rowdata[["gene_id"]]))) {
