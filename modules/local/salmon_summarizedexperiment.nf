@@ -25,7 +25,8 @@ process SALMON_SUMMARIZEDEXPERIMENT {
     salmon_summarizedexperiment.r \\
         NULL \\
         $counts \\
-        $tpm
+        $tpm \\
+        $lengths
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
